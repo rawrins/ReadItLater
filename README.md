@@ -1,4 +1,4 @@
-# Read Later Offline Pro 📑
+# ReadItLater 📑
 
 A lightweight, privacy-focused Firefox extension to save articles for offline reading. It uses Mozilla's **Readability** library to extract clean text and media, providing a distraction-free reading experience.
 
