@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reader Mode</title>
+    <style>
+        :root {
+            --bg: #fdfdfd;
+            --txt: #222;
+            --fs: 19px;
+            --ff: serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--txt);
+            font-size: var(--fs);
+            font-family: var(--ff);
+            line-height: 1.6;
+            margin: 0;
+            transition: 0.3s;
+            scroll-behavior: smooth;
+        }
+
+        body.sepia {
+            --bg: #f4ecd8;
+            --txt: #5b4636;
+        }
+
+        body.dark {
+            --bg: #1a1a1a;
+            --txt: #ccc;
+        }
+
+        body.sans {
+            --ff: sans-serif;
+        }
+
+        .toolbar {
+            position: sticky;
+            top: 0;
+            background: #eee;
+            padding: 10px;
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            border-bottom: 1px solid #ccc;
+            z-index: 1000;
+        }
+
+        .toolbar button {
+            padding: 5px 10px;
+            cursor: pointer;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            background: white;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        img,
+        video,
+        iframe {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            margin: 2em auto;
+        }
+
+        #content a {
+            color: #0060df;
+        }
+
+        #content a.internal-link {
+            text-decoration: none;
+            border-bottom: 1px dashed #0060df;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn-footer {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        #archiveThis {
+            background: #4a5568;
+            color: white;
+        }
+
+        #deleteThis {
+            background: #e53e3e;
+            color: white;
+        }
+
+        .btn-footer:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="toolbar">
+        <button id="sizeMinus">A-</button><button id="sizePlus">A+</button>
+        <button id="toggleSans">Sans/Serif</button>
+        <button id="setLight">Light</button><button id="setSepia">Sepia</button><button id="setDark">Dark</button>
+    </div>
+
+    <div class="container">
+        <div id="loader" style="text-align:center;">Loading article...</div>
+
+        <div id="reader-container" style="display:none;">
+            <h1 id="title"></h1>
+            <div id="content"></div>
+            <footer>
+                <button id="archiveThis" class="btn-footer">Archive & Close</button>
+                <button id="deleteThis" class="btn-footer">Delete Article</button>
+            </footer>
+        </div>
+    </div>
+
+    <script src="reader.js"></script>
+</body>
+
+</html>

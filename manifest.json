@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "Read Later Pro",
+    "version": "1.3",
+    "permissions": [
+        "storage",
+        "tabs",
+        "scripting",
+        "unlimitedStorage",
+        "downloads",
+        "contextMenus",
+        "notifications"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'; img-src * data:; style-src 'self' 'unsafe-inline';"
+    },
+    "action": {
+        "default_popup": "popup/index.html"
+    }
+}
